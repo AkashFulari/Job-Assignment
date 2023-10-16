@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <h1>Sorting array in descending order</h1>
+        <div id="inp">Before Sort: </div>
+        <div id="Output">After Sort: </div>
+    </body>
+</html>
+<script>
+    const inp = document.getElementById("inp");
+    const output = document.getElementById("Output");
+    const input = [20,2,98,92,9,27,81,76];
+
+    input.forEach((a, i)=> {
+        inp.innerHTML += ((i!=0)?",":"") + a;
+    }); 
+    
+    input.sort((a, b) => b - a);
+    input.forEach((a, i)=> {
+        output.innerHTML += ((i!=0)?",":"") + a;
+    });
+</script>

@@ -1,0 +1,24 @@
+<html>
+
+<body>
+    <h1>Reversing words</h1>
+    <div id="inp">Original Text: </div>
+    <div id="Output">Reverse Test: </div>
+</body>
+
+</html>
+<script>
+    const output = document.getElementById("Output");
+    const inp = document.getElementById("inp");
+    const input = prompt("Enter Input(Sentence): ");
+    if (input) {
+        if (input.length > 0) {
+            inp.innerHTML += input;
+            words = input.split(" ");
+            re_words = words.map(w => {
+                return w.split("").reverse().join("");
+            });
+            output.innerHTML += re_words.join(" ");
+        }
+    }
+</script>

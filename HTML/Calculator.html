@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator by - Akash Fulari</title>
+    <style>
+        html,
+        body {
+            position: relative;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: lightgray;
+            font-family:"Open-Sans", sans-serif;
+        }
+
+        .calsi-box {
+            position: relative;
+            box-shadow: 10px 10px 28px -18px #333;
+        }
+
+        .row {
+            position: relative;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .row>* {
+            border: none;
+            outline: none;
+            font-size: large;
+        }
+
+        .row.input {
+            display: flex;
+        }
+
+        .row.input>input {
+            padding: 10px;
+            flex: 1;
+        }
+
+        .row button {
+            position: relative;
+            height: 80px;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: white;
+        }
+
+        .row button:last-child {
+            background-color: gray;
+        }
+
+        .row.input>button {
+            background-color: rgb(13 140 126);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calsi-box">
+        <div class="row input">
+            <input type="text" id="display" readonly>
+            <button id="acl">AC</button>
+        </div>
+        <div class="row">
+            <button>9</button>
+            <button>8</button>
+            <button>7</button>
+            <button>+</button>
+        </div>
+        <div class="row">
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+        </div>
+        <div class="row">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>/</button>
+        </div>
+        <div class="row">
+            <button>.</button>
+            <button>0</button>
+            <button>=</button>
+            <button>x</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById("display");
+        const btns = document.querySelectorAll("button");
+        btns.forEach(b => {
+            b.onclick = () => {
+                s = b.textContent.toLowerCase();
+                if (s == "ac") {
+                    display.value = "";
+                }
+                else if (s == "=") {
+                    display.value = eval(display.value);
+                }
+                else{
+                    display.value += ((s == "x") ? "*" : s);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
